@@ -1,0 +1,5 @@
+library(readxl)
+toxinas_clase <- file.choose()
+toxinas_clase_base <- read.csv(toxinas_clase)
+is.vector(toxinas_clase_base)
+is.factor(toxinas_clase_base)

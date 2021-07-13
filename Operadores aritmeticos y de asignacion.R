@@ -16,4 +16,9 @@ suma_1.1
 sumando_1
 igual <- "no usar tanto"
 
+TRUE + TRUE
+FALSE + FALSE
 
+Objeto_1 <- c(15,26,78,98,45,14,78,63,45,25,78,96,65,15,23,65,99,77,48,20)
+matriz_1 <- matrix(Objeto_1, nrow = 5, ncol = 4)
+matriz_1
