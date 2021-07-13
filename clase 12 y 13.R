@@ -44,3 +44,21 @@ Aves_de_México <- Aves_de_México %>%
                                                      Origen_y_categoría_de_endemismo == "CE" ~ "Cuasiendémica",
                                                      Origen_y_categoría_de_endemismo == "Exo" ~ "Exótica",
                                                      Origen_y_categoría_de_endemismo == "SE" ~ "Semiendémica"))
+glimpse(Aves_de_México)
+Aves_de_México <- Aves_de_México %>% 
+  mutate(Tamaño_promedio = c(`Male size cm` + `Female size`)/2)
+Aves_de_México <- Aves_de_México %>% 
+  mutate(Promedio_ala = c(`Wingspan Male` + `Wingspan Female`)/2)
+Aves_de_México <- Aves_de_México %>% 
+  mutate(Promedio_puesta = c(`Minimun clutch size` + `Maximum clutch size`)/2)
+
+Fem <- Aves_de_México %>% 
+  select(Familia, `Female size`, Promedio_puesta, `Wingspan Female`)
+Migratoria_ala <- Aves_de_México %>% 
+  select(Orden, Familia, Género, Especie, Residencia, Promedio_ala)
+Migratoria_ala <- Migratoria_ala %>% 
+  filter(Residencia %in% c("Migratoria de verano", "Migratoria de invierno"))
+Fam_cat <- Aves_de_México %>% 
+  group_by(Categoría_UICN)
+
+         
